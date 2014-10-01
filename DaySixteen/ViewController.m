@@ -47,6 +47,8 @@
             self.lblInfo.text = @"Landscape left";
         }
     } completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+        self.lblInfo.text = @"Transition is over";
+
     }];
     [super viewWillTransitionToSize: size withTransitionCoordinator: coordinator];
 }
