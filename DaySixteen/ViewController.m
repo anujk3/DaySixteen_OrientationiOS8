@@ -17,11 +17,53 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+    
+    if (orientation == UIInterfaceOrientationLandscapeLeft) {
+        NSLog(@"Landscape left");
+        self.lblInfo.text = @"Landscape left";
+    } else if (orientation == UIInterfaceOrientationLandscapeRight) {
+        NSLog(@"Landscape right");
+        self.lblInfo.text = @"Landscape right";
+    } else if (orientation == UIInterfaceOrientationPortrait) {
+        NSLog(@"Portrait");
+        self.lblInfo.text = @"Portrait";
+    } else if (orientation == UIInterfaceOrientationPortraitUpsideDown) {
+        NSLog(@"Upside down");
+        self.lblInfo.text = @"Upside down";
+    }
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void) willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    if (toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft) {
+        NSLog(@"Landscape left");
+        self.lblInfo.text = @"Landscape left";
+    } else if (toInterfaceOrientation == UIInterfaceOrientationLandscapeRight) {
+        NSLog(@"Landscape right");
+        self.lblInfo.text = @"Landscape right";
+    } else if (toInterfaceOrientation == UIInterfaceOrientationPortrait) {
+        NSLog(@"Portrait");
+        self.lblInfo.text = @"Portrait";
+    } else if (toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
+        NSLog(@"Upside down");
+        self.lblInfo.text = @"Upside down";
+    }
+}
+
+//Autorotate should not work, Orientation will remain the same
+
+//-(BOOL) shouldAutorotate {
+//    return NO;
+//}
+
+- (NSUInteger)supportedInterfaceOrientations{
+    //return UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskPortrait; // only allow these orientations
+    return UIInterfaceOrientationMaskAll;
 }
 
 @end
