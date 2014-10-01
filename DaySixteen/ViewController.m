@@ -39,6 +39,18 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id <UIViewControllerTransitionCoordinator>)coordinator{
+    [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+        UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation]; // do whatever
+        if (orientation == UIInterfaceOrientationLandscapeLeft) {
+            NSLog(@"Landscape Left");
+            self.lblInfo.text = @"Landscape left";
+        }
+    } completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+    }];
+    [super viewWillTransitionToSize: size withTransitionCoordinator: coordinator];
+}
+
 
 /* This method has been deprecated though
 -(void) willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
