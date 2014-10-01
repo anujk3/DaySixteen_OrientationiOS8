@@ -39,6 +39,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+/* This method has been deprecated though
 -(void) willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
     if (toInterfaceOrientation == UIInterfaceOrientationLandscapeLeft) {
         NSLog(@"Landscape left");
@@ -54,6 +56,8 @@
         self.lblInfo.text = @"Upside down";
     }
 }
+*/
+
 
 //Autorotate should not work, Orientation will remain the same
 
